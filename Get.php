@@ -40,6 +40,6 @@ foreach ($results as $row) {
 }
 file_put_contents('add.txt', $windows_add);
 file_put_contents('del.txt', $windows_del);
-file_put_contents('routes-up.sh', $android_up);
-file_put_contents('routes-down.sh', $android_down);
+file_put_contents('routes-up-android.sh', $android_up);
+file_put_contents('routes-down-android.sh', $android_down);
 echo $i;
