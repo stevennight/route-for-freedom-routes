@@ -1,17 +1,9 @@
-
 #!/bin/sh
-
-alias nestat=\'/system/xbin/busybox netstat\'
-
-alias grep=\'/system/xbin/busybox grep\'
-
-alias awk=\'/system/xbin/busybox awk\'
-
-alias route=\'/system/xbin/busybox route\'
-
-gateway=`netstat -rn | grep ^0\.0\.0\.0 | awk \'{print $2}\'`
-
-route del -net 1.0.1.0 netmask 255.255.255.0
+alias nestat='/system/xbin/busybox netstat'
+alias grep='/system/xbin/busybox grep'
+alias awk='/system/xbin/busybox awk'
+alias route='/system/xbin/busybox route'
+gateway=`netstat -rn | grep ^0.0.0.0 | awk '{print $2}'`route del -net 1.0.1.0 netmask 255.255.255.0
 route del -net 1.0.2.0 netmask 255.255.254.0
 route del -net 1.0.8.0 netmask 255.255.248.0
 route del -net 1.0.32.0 netmask 255.255.224.0

@@ -10,14 +10,13 @@ echo "Ok!\r\n";
 echo 'Analysing:' . "\r\n";
 $i = 0;
 $windows_add = $windows_del = '';
-$android_up = $android_down = "
-#!/bin/sh\n
-alias nestat=\'/system/xbin/busybox netstat\'\n
-alias grep=\'/system/xbin/busybox grep\'\n
-alias awk=\'/system/xbin/busybox awk\'\n
-alias route=\'/system/xbin/busybox route\'\n
-gateway=`netstat -rn | grep ^0\.0\.0\.0 | awk \'{print $2}\'`\n
-";
+$android_up = $android_down =
+"#!/bin/sh
+alias nestat='/system/xbin/busybox netstat'
+alias grep='/system/xbin/busybox grep'
+alias awk='/system/xbin/busybox awk'
+alias route='/system/xbin/busybox route'
+gateway=`netstat -rn | grep ^0.0.0.0 | awk '{print $2}'`";
 foreach ($results as $row) {
     $params = explode('|', $row);
     if (count($params) != 7 || $params[1] != 'CN') {
@@ -40,6 +39,6 @@ foreach ($results as $row) {
 }
 file_put_contents('add.txt', $windows_add);
 file_put_contents('del.txt', $windows_del);
-file_put_contents('routes-up-android.sh', $android_up);
-file_put_contents('routes-down-android.sh', $android_down);
+//file_put_contents('routes-up-android.sh', $android_up);
+//file_put_contents('routes-down-android.sh', $android_down);
 echo $i;
